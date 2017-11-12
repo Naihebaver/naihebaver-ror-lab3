@@ -1,31 +1,38 @@
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid top-header">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+        <%= link_to "Blog" , root_path, class: "navbar-brand" %>
     </div>
-<!--     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-    </ul> -->
-    <ul class="nav navbar-nav navbar-right">
-    <% if current_user.nil? %>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav top-nag cl-effect-16">
+    
+        <li><a href="#" data-hover="About">About</a></li>
+        <li><a href="#" data-hover="Contacts">Contacts</a></li>
+        <%= link_to "New Post" , new_post_path, class: "btn btn-danger" %>
 
-      <li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right cl-effect-16">
+      <% if current_user.nil? %>
+
+       <li>
         <%= link_to new_user_session_path do %>
-        <i class="glyphicon glyphicon-user"></i> Login
+          <i class="glyphicon glyphicon-log-in"></i></span> Login
         <% end %>
       </li>
-
-    <% else %>
-
+      
+      <% else %>
       <li>
         <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="glyphicon glyphicon-log-out"></i> Logout
-         <% end %>
+          <i class="glyphicon glyphicon-log-out"></i></span> Logout
+        <% end %>
       </li>
-    <% end %>
-    
-    </ul>
+      <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
