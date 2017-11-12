@@ -1,0 +1,22 @@
+<h1><%= @post.title %></h1>
+<p>
+	Author:<%= @post.user.nickname %> |
+	Creeated at:<%= @post.created_at %> |
+	Update at:<%= @post.updated_at %>
+</p>
+<p><%= @post.body %></p>
+
+
+<hr>
+<% @comments.each do |comment| %>
+<p>User <b><%= comment.user.nickname %></b> say: </p>
+<p><%= comment.comment %></p>
+<hr>
+<% end %>
+
+
+<%= form_for :postcomment, url: post_postcomments_path(@post.id), method: :post do |f| %>
+	<p><%= f.label "Add your comment" %></p>
+	<p><%= f.text_area :comment, cols: 5, rows: 5 %></p>
+	<P><%= f.submit "Add Comment" %></P>
+<% end %>
