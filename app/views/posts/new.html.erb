@@ -1,9 +1,5 @@
-<%= form_for :post, url: posts_path do |f| %>
-	<% if @post.errors.any? %>
-		<% @post.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
-		<% end %>
-	<% end %>
+<%= form_for @post, url: posts_path, validate: true do |f| %>
+
 
 	<%= render 'posts/form', f:f %>
 

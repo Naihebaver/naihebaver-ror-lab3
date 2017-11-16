@@ -4,6 +4,7 @@
 	
 	<h1><%= link_to post.title , post_path(post.id)%></h1>
 	<p>
+		<%= image_tag post.user.avatar.url, width: 30, height: 30 %>
 		Author: <%= post.user.nickname %> <br>
 		
 		Creeated at: <%= post.created_at %> <br>
