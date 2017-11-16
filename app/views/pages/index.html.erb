@@ -2,19 +2,18 @@
 <% @posts.each do |post| %>
 	<div class="col-md-5 post">
 	
-	<h1><%= link_to post.title , post_path(post.id)%></h1>
-	<p>
-		<%= image_tag post.user.avatar.url, width: 30, height: 30 %>
-		Author: <%= post.user.nickname %> <br>
-		
-		Creeated at: <%= post.created_at %> <br>
-		Update at: <%= post.updated_at %> <br>
-	</p>
+	<div class="title"><h1><%= link_to post.title , post_path(post.id)%></h1></div>
+	<div class="author">
+		<%= image_tag post.user.avatar.url, width: 30, height: 30, class: "img-circle" %>
+		Author: <%= post.user.nickname %>
+	</div>
+	<div class="date">
+		Creeated at: <%= post.created_at.to_date.strftime("%e %b %Y %H:%M") %> |
+		Updated at: <%= post.updated_at.to_date.strftime("%e %b %Y %H:%M") %> 
+	</div>
 
-	 <%= link_to post do %>
-        <p class="card-text"><%= truncate(post.body, length: 150) %></p>
-     <% end %>
-
+    <p class="card-text"><%= truncate(post.body, length: 150) %></p>
+   
 
  	<% if current_user != nil and current_user.id == post.user_id %>
 		<%= link_to "Edit", edit_post_path(post.id) %>
