@@ -1,0 +1,7 @@
+<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
+
+	<p><%= f.label "Edit your comment: " %></p>
+	<p><%= f.text_area :comment, cols: 50,rows: 5 %></p>
+	<%= f.submit "Save", class: "btn btn-danger" %>

@@ -13,6 +13,13 @@
 <%= image_tag comment.user.avatar.url, width: 30, height: 30, class: "img-circle" %>
 User <b><%= comment.user.nickname %></b> say: </p>
 <p><%= comment.comment %></p>
+
+<% if current_user != nil and current_user.id == comment.user_id %>
+		<%= link_to "Edit", edit_post_postcomment_path(@post, comment) %>
+		<%= link_to "Delete", post_postcomment_path(@post, comment), data: {confim: 'Are you sure?'}, method: :delete %>
+	<% end %>
+
+
 <hr>
 <% end %>
 
