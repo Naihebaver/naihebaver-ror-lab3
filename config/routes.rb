@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # end
 
 
-    resources :photos do
+  resources :photos do
     member do
       put :like, to:'photos#upvote'
       put :dislike, to:'photos#downvote'

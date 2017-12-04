@@ -1,5 +1,5 @@
 	<p><%= f.label :category %><br>
-	<%= select_tag "category_id", options_from_collection_for_select(Category.all, :id, :name), class: "btn btn-default dropdown-toggle" %></p>
+	<%= select_tag "category_id", options_from_collection_for_select(Category.all, :id, :name), class: "btn btn-default dropdown-toggle category-field" %></p>
 
 	<p><%= f.label :name %><br>
 	<%= f.text_field :name, class: "form-control" %></p>

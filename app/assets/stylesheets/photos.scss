@@ -20,3 +20,28 @@
     font-size: 14px;
     font-weight: 600;
 }
+
+
+.category-field {
+  width: 50%;
+}
+
+.category-field:hover {
+    color: #333;
+    background-color: #fff;
+    border-color: #adadad;
+}
+
+.category-field:active, .category-field:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #adadad;
+}
+
+.category-field:active:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #adadad;
+    outline: none;
+    box-shadow: none;
+}

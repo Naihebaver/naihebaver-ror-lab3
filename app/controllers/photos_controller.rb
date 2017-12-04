@@ -20,8 +20,12 @@ before_action :authenticate_user!
 	end
 
 	def update
-		Photo.find(params[:id]).update
-  		redirect_to photos_path
+		@photo = Photo.find(params[:id])
+		if @photo.update(photo_params)
+      		redirect_to photos_path
+    	else
+      		render 'edit'
+    	end
 	end
 
 	def destroy
