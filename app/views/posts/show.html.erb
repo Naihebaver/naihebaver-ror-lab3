@@ -1,11 +1,11 @@
 <h1><%= @post.title %></h1>
 <div class="inf-block">
 	Author: <%= @post.user.nickname %> |
-	Creeated at: <%= @post.created_at %> |
-	Update at: <%= @post.updated_at %>
+	Creeated at: <%= @post.created_at.strftime('%b %d, %Y в %H:%M') %> |
+	Update at: <%= @post.updated_at.strftime('%b %d, %Y в %H:%M') %>
 </div>
 
-<p><%= sanitize(@post.body) %></p>
+<p><%= @post.body.html_safe %></p>
 
 <hr>
 <% @comments.each do |comment| %>

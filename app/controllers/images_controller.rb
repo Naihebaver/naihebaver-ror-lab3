@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
 before_action :authenticate_user!
+
   def index
   	@images = Image.all
   end
@@ -13,10 +14,22 @@ before_action :authenticate_user!
 
   	if params[:images]
   		params[:images].each { |image|
-  		  @files = @user.images.create(image: image)
-  		}
+  		  @files = @user.images.create(image: image)}
   	end
   	redirect_to images_path
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+      Image.find(params[:id]).destroy
+      redirect_to images_path
   end
 
 private

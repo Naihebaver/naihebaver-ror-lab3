@@ -8,11 +8,11 @@
 		Author: <%= post.user.nickname %>
 	</div>
 	<div class="date">
-		Creeated at: <%= post.created_at.to_date.strftime("%e %b %Y %H:%M") %> |
-		Updated at: <%= post.updated_at.to_date.strftime("%e %b %Y %H:%M") %> 
+		Creeated at: <%= post.created_at.strftime('%b %d, %Y в %H:%M') %> |
+		Updated at: <%= post.updated_at.strftime('%b %d, %Y в %H:%M') %> 
 	</div>
 
-    <p class="card-text"><%= truncate(sanitize(post.body), length: 150) %></p>
+    <p class="card-text"><%= truncate(strip_tags(post.body), length: 150) %></p>
    
 
  	<% if current_user != nil and current_user.id == post.user_id %>

@@ -1,14 +1,22 @@
+<div class="buttons">
 <%= link_to "Upload photo" , new_photo_path, class: "btn btn-danger" %>
 <%= link_to "Upload multiple image" , new_image_path, class: "btn btn-danger" %>
+</div>
 <br>
 <% if @images == [] %>
-	No images
+ No images
  
 <% else %>
 	<% @images.each do |image| %>
-	<%= image_tag image.image.url, width: 300, height: 200 %>
+<div class="col-md-5 photo">
+	<%= image_tag image.image.url, width: 400, height: 300 %>
 	
 	<p>User: <%= image.user.nickname %></p>
 
+
+<p>
+<%= link_to "Delete", image_path(image.id), data: {confim: 'Are you sure?'}, method: :delete %><br>
+<p>
+</div>
 	<% end %>
 <% end %>
