@@ -18,3 +18,9 @@
 //= require turbolinks
 //= require rails.validations
 //= require_tree .
+
+
+
+$(document).on('turbolinks:request-end', function() {
+  if (tinyMCE) { tinyMCE.remove(); }
+});
