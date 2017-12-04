@@ -13,9 +13,17 @@ Rails.application.routes.draw do
   	resources :postcomments
   end
 
-  resources :photos do
+  # resources :photos do
+  #   member do
+  #     get :vote
+  #   end
+  # end
+
+
+    resources :photos do
     member do
-      get :vote
+      put :like, to:'photos#upvote'
+      put :dislike, to:'photos#downvote'
     end
   end
   resources :images

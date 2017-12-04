@@ -14,10 +14,18 @@
 	<p>Name: <%= photo.name %></p>
 	<p>User: <%= photo.user.nickname %></p>
 
-	<p><%= link_to "Like", vote_photo_path(photo.id) %> (<%= @like[photo.id] %>)</p>
+<!-- 	<p><%= link_to "Like", like_photo_path(photo), method: :put %> (<%= photo.get_upvotes.size %>) or
+		<%= link_to "Dislike", dislike_photo_path(photo), method: :put %> (<%= photo.get_downvotes.size %>)
+	</p> -->
+<p>
+<%= link_to like_photo_path(photo), method: :put do %><span class="glyphicon glyphicon-thumbs-up"></span> (<%= photo.get_upvotes.size %>)<% end %> or 
+<%= link_to dislike_photo_path(photo), method: :put do %> <span class="glyphicon glyphicon-thumbs-down"></span> (<%= photo.get_downvotes.size %>)<% end %>
+</p>
 
-	<%= link_to "Edit", edit_photo_path(photo.id) %>
-	<%= link_to "Delete", photo_path(photo.id), data: {confim: 'Are you sure?'}, method: :delete %><br>
+<p>
+<%= link_to "Edit", edit_photo_path(photo.id) %>
+<%= link_to "Delete", photo_path(photo.id), data: {confim: 'Are you sure?'}, method: :delete %><br>
+<p>
 </div>
 	<% end %>
 <% end %>

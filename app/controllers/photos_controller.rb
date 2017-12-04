@@ -2,13 +2,6 @@ class PhotosController < ApplicationController
 before_action :authenticate_user!
 	def index
 		@photos = Photo.all
-		@like = {}
-		@photos.each do |photo|
-			@vote = Vote.find_by_photo_id(photo.id)
-			if !@vote.nil?
-				@like[photo.id] = @vote.like
-			end
-		end
 	end
 
 	def new
@@ -36,17 +29,15 @@ before_action :authenticate_user!
   		redirect_to photos_path
 	end
 
-	def vote
-		pp @photo = Photo.find(params[:id])
-		pp @vote = Vote.find_by_photo_id(@photo.id)
-		
-		if @vote == nil
-			@like = 1
-			Vote.create(user_id: current_user.id, photo_id: @photo.id, like: @like)
-		else
-			@vote.update(like: @vote.like+1)
-		end
+	def upvote
+		@photo = Photo.find(params[:id])
+		@photo.upvote_by(current_user)
+		redirect_to photos_path
+	end
 
+	def downvote
+		@photo = Photo.find(params[:id])
+		@photo.downvote_by(current_user)
 		redirect_to photos_path
 	end
 
