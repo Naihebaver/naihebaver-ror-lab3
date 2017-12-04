@@ -25,6 +25,9 @@
 @import "posts";
 @import "footer";
 
+@import "images";
+@import "photos";
+
 
 .container {
   min-height: 85vh;
@@ -79,7 +82,7 @@ a, a:link{
 .btn-danger:hover {
   background: #d95552;
   color: #fff;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: 600;
   border-radius: 4px;
   padding: 10px 15px;
@@ -90,7 +93,7 @@ a, a:link{
 .btn-danger:focus:active {
   background: #d95552;
   color: #fff;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: 600;
   border-radius: 4px;
   padding: 10px 15px;
@@ -98,35 +101,5 @@ a, a:link{
   outline: none;
 }
 
-/*.submit-button {
-    background: #d95350 !important;
-    color: #fff !important;
-    font-size: 0.9em;
-    font-weight: 600;
-    border: none !important;
-    border-radius: 4px !important;
-    padding: 10px 15px !important;
-    text-shadow: none !important;
-}
-.submit-button:hover {
-    background: #d95350 !important;
-    color: #fff !important;
-    font-size: 0.9em;
-    font-weight: 600;
-    border: 2px solid #fff !important;
-    border-radius: 4px !important;
-    padding: 10px 15px !important;
-    text-shadow: none !important;
-}
-.submit-button:focus {
-    background: #d95350 !important;
-    color: #fff !important;
-    font-size: 0.9em;
-    font-weight: 600;
-    border: 2px solid #fff !important;
-    border-radius: 4px !important;
-    padding: 10px 15px !important;
-    text-shadow: none !important;
-}*/
 
 

@@ -1,12 +1,15 @@
+<div class="buttons">
 <%= link_to "Upload photo" , new_photo_path, class: "btn btn-danger" %>
 <%= link_to "Upload multiple image" , new_image_path, class: "btn btn-danger" %>
+</div>
 <br>
 <% if @photos == [] %>
- sdfsfd
+ Gallery empty
  
 <% else %>
 	<% @photos.each do |photo| %>
-	<%= image_tag photo.photo_url, width: 300, height: 200 %>
+<div class="col-md-5 photo">
+	<%= image_tag photo.photo_url, width: 400, height: 300 %>
 	<p>Category: <%= photo.category.name %></p>
 	<p>Name: <%= photo.name %></p>
 	<p>User: <%= photo.user.nickname %></p>
@@ -15,5 +18,6 @@
 
 	<%= link_to "Edit", edit_photo_path(photo.id) %>
 	<%= link_to "Delete", photo_path(photo.id), data: {confim: 'Are you sure?'}, method: :delete %><br>
+</div>
 	<% end %>
 <% end %>

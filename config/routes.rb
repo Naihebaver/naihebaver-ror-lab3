@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   	resources :postcomments
   end
 
- # resources :posts
   resources :photos do
     member do
       get :vote
