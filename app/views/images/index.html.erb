@@ -1,0 +1,14 @@
+<%= link_to "Upload photo" , new_photo_path, class: "btn btn-danger" %>
+<%= link_to "Upload multiple image" , new_image_path, class: "btn btn-danger" %>
+<br>
+<% if @images == [] %>
+  Iamges no
+ 
+<% else %>
+	<% @images.each do |image| %>
+	<%= image_tag image.image.url, width: 300, height: 200 %>
+	
+	<p>User: <%= image.user.nickname %></p>
+
+	<% end %>
+<% end %>

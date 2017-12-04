@@ -1,0 +1,19 @@
+<%= link_to "Upload photo" , new_photo_path, class: "btn btn-danger" %>
+<%= link_to "Upload multiple image" , new_image_path, class: "btn btn-danger" %>
+<br>
+<% if @photos == [] %>
+ sdfsfd
+ 
+<% else %>
+	<% @photos.each do |photo| %>
+	<%= image_tag photo.photo_url, width: 300, height: 200 %>
+	<p>Category: <%= photo.category.name %></p>
+	<p>Name: <%= photo.name %></p>
+	<p>User: <%= photo.user.nickname %></p>
+
+	<p><%= link_to "Like", vote_photo_path(photo.id) %> (<%= @like[photo.id] %>)</p>
+
+	<%= link_to "Edit", edit_photo_path(photo.id) %>
+	<%= link_to "Delete", photo_path(photo.id), data: {confim: 'Are you sure?'}, method: :delete %><br>
+	<% end %>
+<% end %>

@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :postcomments
+  has_many :photos, dependent: :destroy
+  has_many :images
+  has_many :votes
 
   validates :nickname, :email, :password, :password_confirmation, presence: true
   validates :nickname, length: { in: 3..20 }

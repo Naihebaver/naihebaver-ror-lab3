@@ -1,0 +1,10 @@
+	<p><%= f.label :category %><br>
+	<%= select_tag "category_id", options_from_collection_for_select(Category.all, :id, :name), class: "btn btn-default dropdown-toggle" %></p>
+
+	<p><%= f.label :name %><br>
+	<%= f.text_field :name, class: "form-control" %></p>
+
+	<p><%= f.label "Upload photo" %><br>
+	<%= f.file_field :photo %></p>
+
+	<br><p><%= f.submit "Save", class: "btn btn-danger" %></p>

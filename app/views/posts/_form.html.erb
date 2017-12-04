@@ -1,7 +1,8 @@
 	<p><%= f.label :title %><br>
-	<%= f.text_field :title %></p>
+	<%= f.text_field :title, class: "form-control" %></p>
 
 	<br><p><%= f.label :body %><br>
-	<%= f.text_area :body, cols: 30, rows: 20 %></p>
+	<%= f.text_area :body, :class => "tinymce", cols: 20, rows: 15 %></p>
+	<%= tinymce %>
 
-	<br><p><%= f.submit "Create post", class: "submit-button" %></p>
+	<br><p><%= f.submit "Create post", class: "btn btn-danger" %></p>

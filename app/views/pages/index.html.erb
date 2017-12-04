@@ -12,7 +12,7 @@
 		Updated at: <%= post.updated_at.to_date.strftime("%e %b %Y %H:%M") %> 
 	</div>
 
-    <p class="card-text"><%= truncate(post.body, length: 150) %></p>
+    <p class="card-text"><%= truncate(sanitize(post.body), length: 150) %></p>
    
 
  	<% if current_user != nil and current_user.id == post.user_id %>
@@ -26,4 +26,3 @@
 </div>
 
 
-	
