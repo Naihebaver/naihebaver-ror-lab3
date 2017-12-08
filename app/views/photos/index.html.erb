@@ -9,7 +9,7 @@
 <% else %>
 	<% @photos.each do |photo| %>
 <div class="col-md-5 photo">
-	<%= image_tag photo.photo_url, width: 400, height: 300 %>
+	<%= image_tag photo.photo_url, width: 400, height: 300 unless photo.blank?%>
 	<p>Category: <%= photo.category.name %></p>
 	<p>Name: <%= photo.name %></p>
 	<p>User: <%= photo.user.nickname %></p>
